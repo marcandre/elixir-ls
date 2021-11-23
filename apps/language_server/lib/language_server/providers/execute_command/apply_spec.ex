@@ -63,7 +63,7 @@ defmodule ElixirLS.LanguageServer.Providers.ExecuteCommand.ApplySpec do
 
         target_line_length = target_line_length - String.length(indentation)
 
-        Code.format_string!("@spec #{spec}", line_length: target_line_length)
+        FreedomFormatter.format_string!("@spec #{spec}", line_length: target_line_length)
         |> IO.iodata_to_binary()
         |> SourceFile.lines()
         |> Enum.map_join("\n", &(indentation <> &1))

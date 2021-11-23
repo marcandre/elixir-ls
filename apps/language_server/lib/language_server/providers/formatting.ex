@@ -29,7 +29,7 @@ defmodule ElixirLS.LanguageServer.Providers.Formatting do
   end
 
   defp do_format(%SourceFile{text: text}, opts \\ []) do
-    formatted = IO.iodata_to_binary([Code.format_string!(text, opts), ?\n])
+    formatted = IO.iodata_to_binary([FreedomFormatter.format_string!(text, opts), ?\n])
 
     response =
       text

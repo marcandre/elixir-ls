@@ -24,7 +24,7 @@ defmodule ElixirLS.LanguageServer.Providers.CodeLens.TypeSpec.ContractTranslator
     |> improve_defprotocol_spec(mod, fun)
     |> Macro.to_string()
     |> String.replace("()", "")
-    |> Code.format_string!(line_length: :infinity)
+    |> FreedomFormatter.format_string!(line_length: :infinity)
     |> IO.iodata_to_binary()
     |> String.replace_prefix("foo", to_string(fun))
   end

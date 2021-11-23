@@ -350,7 +350,7 @@ defmodule ElixirLS.LanguageServer.SourceFile do
 
   defp format_code(code, opts) do
     try do
-      {:ok, Code.format_string!(code, opts)}
+      {:ok, FreedomFormatter.format_string!(code, opts)}
     rescue
       e ->
         {:error, e}
